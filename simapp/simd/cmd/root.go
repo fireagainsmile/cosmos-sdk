@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"context"
-	simapp2 "github.com/fireagainsmile/cosmos-sdk/simapp"
 	"io"
 	"os"
 	"path/filepath"
@@ -96,7 +95,7 @@ func initRootCmd(rootCmd *cobra.Command, encodingConfig params.EncodingConfig) {
 		tmcli.NewCompletionCmd(rootCmd, true),
 		testnetCmd(simapp.ModuleBasics, banktypes.GenesisBalancesIterator{}),
 		debug.Cmd(),
-		simapp2.AddPeerId(),
+		simapp.AddPeerId(),
 	)
 
 	server.AddCommands(rootCmd, simapp.DefaultNodeHome, newApp, createSimappAndExport)
