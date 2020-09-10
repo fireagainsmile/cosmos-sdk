@@ -116,6 +116,7 @@ func interceptConfigs(ctx *Context, rootViper *viper.Viper) (*tmcfg.Config, erro
 	configFile := filepath.Join(configPath, "config.toml")
 
 	conf := tmcfg.DefaultConfig()
+	conf.FilterPeers = true
 
 	if _, err := os.Stat(configFile); os.IsNotExist(err) {
 		tmcfg.EnsureRoot(rootDir)
